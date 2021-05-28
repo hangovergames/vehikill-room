@@ -1,4 +1,4 @@
-// Copyright 202
+// Copyright (c) 2021 Hangover Games Ltd <info@hangover.games>. All rights reserved.
 
 import Scene, {
     CollisionGroup,

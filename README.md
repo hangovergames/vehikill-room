@@ -12,4 +12,4 @@ Try not to directly edit `src/rooms/default.ts` unless it's a bug fix and/or an 
 
 You should copy the default room as `src/rooms/your-room.ts` instead.
 
-Once you're happy with the change, you may submit it to us as a pull request. We may then add it on the server.
+Once you're happy with your room configuration, you may submit it to us as a pull request. We may then add it on the server.
