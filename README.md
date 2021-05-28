@@ -1,15 +1,17 @@
-# vehikill-room
+# hangovergames/vehikill-room
 
 Room configuration(s) for [vehikill.io](https://play.vehikill.io).
 
-Feel free to fork and create your own room configurations :)
-
-You may contact Vehikill developers at [Discord](https://discord.com/invite/tKKMczp) in order to enable custom rooms.
+Feel free to fork and create your own unique rooms :)
 
 ### Custom rooms
 
-Try not to directly edit `src/rooms/default.ts` unless it's a bug fix and/or an improvement to the default room. 
+Try not to directly edit `src/rooms/derby.ts` unless it's a bug fix and/or an improvement to the derby room.
 
-You should copy the default room as `src/rooms/your-room.ts` instead.
+You should copy existing room as `src/rooms/your-room.ts` instead.
 
-Once you're happy with your room configuration, you may submit it to us as a pull request. We may then add it on the server.
+Once you're happy with your room, you may submit it to us as a pull request. We may then add it on the server.
+
+### Discord
+
+You may also contact Vehikill.io developers at [Discord](https://discord.com/invite/tKKMczp).
