@@ -1,5 +1,17 @@
 // Copyright (c) 2021 Hangover Games Ltd <info@hangover.games>. All rights reserved.
+//
+// Note! If you need something which is available in AFrame or ThreeJS, but missing from this definition, just
+// add it here and submit a pull request.
+//
+// Resources referenced here as `/assets/{path}` are available from https://de1.vehikill.io/assets/{path} (but not
+// under MIT license).
+//
+// You may add new resources. However these must be free to publish as open source in this project.
+//
 
+/**
+ * Color code, eg. `#ffffff` for white.
+ */
 export type Color = string;
 
 export enum EntityId {
@@ -25,6 +37,9 @@ export enum ShadowType {
 
 }
 
+/**
+ * @see https://aframe.io/docs/1.2.0/components/geometry.html#built-in-geometries
+ */
 export enum Primitive {
 
     MIXIN = "a-mixin",
@@ -72,6 +87,9 @@ export enum Tag {
     LETHAL = "lethal"
 }
 
+/**
+ * @see https://aframe.io/docs/1.2.0/components/shadow.html
+ */
 export interface Shadow {
 
     type    ?: ShadowType;
@@ -80,6 +98,9 @@ export interface Shadow {
 
 }
 
+/**
+ * @see https://aframe.io/docs/1.2.0/components/fog.html
+ */
 export interface Fog {
 
     type  : FogType;
@@ -111,14 +132,28 @@ export enum EntityType {
     STANDARD = 'a-entity'
 }
 
-
+/**
+ * @see https://aframe.io/docs/1.2.0/components/position.html
+ */
 export type Position = string;
+
+/**
+ * @see https://aframe.io/docs/1.2.0/components/rotation.html
+ */
+export type Rotation = string;
+
+/**
+ * @see https://aframe.io/docs/1.2.0/components/scale.html
+ */
 export type Scale = string;
 
 export interface Model {
     type: ModelType;
 }
 
+/**
+ * @see https://aframe.io/docs/1.2.0/components/light.html#configuring-shadows
+ */
 export interface TraverseShadows {
     castShadow    : boolean;
     receiveShadow : boolean;
@@ -144,6 +179,9 @@ export interface LoadingTracker {
 
 }
 
+/**
+ * @See https://aframe.io/docs/1.2.0/components/geometry.html
+ */
 export interface Geometry {
 
     primitive : Primitive;
@@ -153,72 +191,102 @@ export interface Geometry {
 
 }
 
-export interface ReactEntity {
-
-    description     ?: string;
-    type            ?: EntityType.REACT;
-    id              ?: EntityId;
-    primitive       ?: Primitive;
-    staticBody      ?: Body;
-    dynamicBody     ?: Body;
-    collisionSound  ?: Sound;
-    shadow          ?: Shadow;
-    cachedGltfModel ?: Model;
-    position        ?: Position;
-    rotation        ?: Position;
-    scale           ?: Scale;
-    loadingTracker  ?: LoadingTracker;
-    traverseShadows ?: TraverseShadows;
-    nid             ?: number;
-    visible         ?: boolean;
-    geometry        ?: Geometry;
-
-}
-
 export enum Side {
+
+    /**
+     * This is AFRAME.THREE.DoubleSide
+     *
+     * @see Probably same as https://threejs.org/docs/#api/en/materials/Material.shadowSide
+     */
     DOUBLE_SIDE = "DOUBLE_SIDE"
+
 }
 
 export interface InstancedMaterialModifier {
     side: Side;
 }
 
-export interface StandardEntity {
+/**
+ *
+ * @See https://aframe.io/docs/1.2.0/core/entity.html
+ */
+export interface BaseEntity {
 
-    description     ?: string;
-    type            : EntityType.STANDARD;
-
-    id             ?: EntityId;
-    primitive      ?: Primitive;
-    staticBody     ?: Body;
-    dynamicBody    ?: Body;
-    collisionSound ?: Sound;
-    shadow         ?: Shadow;
-
+    description      : string;
+    type             : EntityType;
+    id              ?: EntityId;
+    primitive       ?: Primitive;
+    staticBody      ?: Body;
+    dynamicBody     ?: Body;
+    collisionSound  ?: Sound;
+    shadow          ?: Shadow;
     nid             ?: number;
-    class           ?: string;
     position        ?: Position;
-    rotation        ?: Position;
+    rotation        ?: Rotation;
     scale           ?: Scale;
-    receiveShadow   ?: boolean;
+
+    /**
+     * @see https://aframe.io/docs/1.2.0/components/visible.html#sidebar
+     */
+    visible         ?: boolean;
+
+    geometry        ?: Geometry;
+    loadingTracker  ?: LoadingTracker;
+    cachedGltfModel ?: Model;
+    class           ?: string;
+
+    /**
+     * @see https://aframe.io/docs/1.2.0/core/mixins.html
+     */
     mixin           ?: MixinType;
 
+    receiveShadow             ?: boolean;
+
+    /**
+     * This is custom feature from Vehikill code
+     */
     instancedMaterialModifier ?: InstancedMaterialModifier;
+
+    /**
+     * This is custom feature from Vehikill code
+     */
     instancedGltfModel        ?: Model;
-    loadingTracker            ?: LoadingTracker;
-    geometry        ?: Geometry;
-    visible         ?: boolean;
-    cachedGltfModel ?: Model;
 
 }
 
+export interface ReactEntity extends BaseEntity {
+
+    type             : EntityType.REACT;
+
+    /**
+     * Might be available for BaseEntity, but wasn't used in current code.
+     */
+    traverseShadows ?: TraverseShadows;
+
+}
+
+export interface StandardEntity extends BaseEntity {
+
+    type             : EntityType.STANDARD;
+
+}
+
+/**
+ * @See https://aframe.io/docs/1.2.0/core/entity.html
+ */
 export type Entity = ReactEntity | StandardEntity;
 
+/**
+ * @See https://aframe.io/docs/1.2.0/core/scene.html
+ */
 export interface Scene {
 
     shadow      : Shadow;
     fog         : Fog;
 
+    /**
+     * Assets will be but inside `<a-assets></a-assets>` block as one of the first elements
+     */
     assets      : Entity[];
 
     elements    : Entity[];

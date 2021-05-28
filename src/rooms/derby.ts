@@ -33,7 +33,9 @@ export const SCENE : Scene = {
     },
 
     assets: [
+
         {
+            description: 'Floor',
             type: EntityType.REACT,
             id: EntityId.FLOOR,
             primitive: Primitive.MIXIN,
@@ -52,6 +54,7 @@ export const SCENE : Scene = {
             }
         },
         {
+            description: 'Object',
             type: EntityType.REACT,
             id: EntityId.OBJECT,
             primitive: Primitive.MIXIN,
