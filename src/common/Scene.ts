@@ -60,7 +60,8 @@ export enum FogType {
 export enum SoundType {
 
     FLOOR_M     = "floor_m.m4a",
-    COLLISION_M = "collision-m.m4a"
+    COLLISION_M = "collision-m.m4a",
+    GEIGER_TICK = "geiger-tick.m4a"
 
 }
 

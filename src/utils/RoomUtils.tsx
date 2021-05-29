@@ -135,19 +135,25 @@ export class RoomUtils {
         return (
             <a-scene {...sceneProps}>
 
-                <a-assets>
-                    {map(
-                        assets,
-                        (item, index) => RoomUtils.buildEntity(item, `asset-${index}`)
-                    )}
-                </a-assets>
+                <a-entity rotation="90 90 -90">
+                    <a-camera id="main-camera"
+                              position="0 15 150"
+                              user-height="0.6"
+                              look-controls="enabled: true"
+                              wasd-controls="acceleration:200">
+                        <a-entity cursor="rayOrigin: mouse" />
+                    </a-camera>
+                </a-entity>
+
+                <a-assets>{map(
+                    assets,
+                    (item, index) => RoomUtils.buildEntity(item, `asset-${index}`)
+                )}</a-assets>
 
                 {map(
                     elements,
                     (item, index) => RoomUtils.buildEntity(item, `element-${index}`)
                 )}
-
-                <AEntity text={{value: `${room.name}`}} />
 
                 {/*<AEntity geometry={{primitive: 'box'}} material={{color: 'red'}} position={{x: 0, y: 0, z: -5}}/>*/}
                 {/*<AEntity particle-system={{preset: 'snow'}}/>*/}
@@ -159,6 +165,50 @@ export class RoomUtils {
 
     }
 
+    static Rig () {
+        return (
+            <AEntity
+                key="camera"
+                id="camera"
+                camera={{
+                    // Don't pause the entity when camera goes inactive. Otherwise,
+                    // the controls will stop working and bird will stop animating when
+                    // exiting VR (=changing to third person camera).
+                    // pauseEntityWhenInactive: false,
+                    // fov: 82
+                }}
+                // chasecam={{
+                //     target: '#peer',
+                //     pedestal: car.cameraPedestal,
+                //     lerp: 1,
+                //     offset: car.cameraOffset
+                // }}
+                // to enable in-world UI (in ui/3D) uncomment the next two lines
+                // cursor="rayOrigin: mouse;"
+                // raycaster="enabled: false; objects: .ui-clickable"
+
+                look-controls
+                wasd-controls
+            />
+        );
+    }
+
 }
+
+// if (window.AFRAME) {
+//     window.AFRAME.registerComponent('rotation-reader', {
+//         tick: function () {
+//
+//             // `this.el` is the element.
+//             // `object3D` is the three.js object.
+//
+//             // `rotation` is a three.js Euler using radians. `quaternion` also available.
+//             console.log(this.el.object3D.rotation);
+//
+//             // `position` is a three.js Vector3.
+//             console.log(this.el.object3D.position);
+//         }
+//     });
+// }
 
 export default RoomUtils;

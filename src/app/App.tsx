@@ -25,6 +25,8 @@ function ViewRoomParamMapper (props: {View: any, itemFinder: ItemFinder<Room, Ro
 
     const { item = undefined } = useParams<{item: RoomName}>();
 
+    console.log('ROOM : ', item);
+
     if (isRoomName(item)) {
         const room : Room | undefined = itemFinder(item);
         if (room) {

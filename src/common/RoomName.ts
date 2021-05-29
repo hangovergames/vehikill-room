@@ -11,12 +11,7 @@ export enum RoomName {
 }
 
 export function isRoomName (name : any) : name is RoomName {
-    switch(name) {
-        case RoomName.derby:
-            return true;
-        default:
-            return false;
-    }
+    return Object.keys(RoomName).includes(name);
 }
 
 export default RoomName;
