@@ -1,7 +1,7 @@
 // Copyright (c) 2021 Hangover Games Ltd <info@hangover.games>. All rights reserved.
 
 import Room from "../common/Room";
-import {Entity as AEntity, Scene as AScene} from "aframe-react";
+import {Entity as AEntity} from "aframe-react";
 import React from "react";
 import map from "lodash/map";
 import keys from "lodash/keys";

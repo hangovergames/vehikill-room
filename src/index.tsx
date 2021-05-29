@@ -6,6 +6,7 @@ import reportWebVitals from './app/reportWebVitals';
 
 import 'aframe';
 import 'aframe-particle-system-component';
+import './components/aframe/index';
 
 ReactDOM.render(
   <React.StrictMode>
