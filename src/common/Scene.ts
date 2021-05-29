@@ -79,6 +79,13 @@ export enum ModelType {
     BUILDINGS  = "buildings/buildings.gltf"
 }
 
+/**
+ * The result should be `/assets/images/{ImageType}`
+ */
+export enum ImageType {
+    DERBY = "1-vehikill.jpg"
+}
+
 export enum MixinType {
     FLOOR = "floor"
 }
@@ -216,8 +223,6 @@ export interface BaseEntity {
     type             : EntityType;
     id              ?: EntityId;
     primitive       ?: Primitive;
-    staticBody      ?: Body;
-    dynamicBody     ?: Body;
     collisionSound  ?: Sound;
     shadow          ?: Shadow;
     nid             ?: number;
@@ -262,6 +267,9 @@ export interface ReactEntity extends BaseEntity {
      * Might be available for BaseEntity, but wasn't used in current code.
      */
     traverseShadows ?: TraverseShadows;
+
+    staticBody      ?: Body;
+    dynamicBody     ?: Body;
 
 }
 

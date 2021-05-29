@@ -4,7 +4,7 @@ import Scene, {
     CollisionGroup,
     EntityId,
     EntityType,
-    FogType,
+    FogType, ImageType,
     LoadingTrackerKey,
     MixinType,
     ModelType,
@@ -16,6 +16,8 @@ import Scene, {
     SoundType,
     Tag
 } from "../common/Scene";
+import Room from "../common/Room";
+import RoomName from "../common/RoomName";
 
 const FOG_COLOR = '#7a8067';
 
@@ -675,5 +677,12 @@ export const SCENE : Scene = {
 
 }
 
-export default SCENE;
+export const ROOM : Room = {
+    name: RoomName.derby,
+    image: ImageType.DERBY,
+    description: 'The classic Vehikill battleground!',
+    scene: SCENE
+};
+
+export default ROOM;
 

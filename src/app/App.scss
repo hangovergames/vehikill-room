@@ -1,0 +1,45 @@
+
+.App {
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+
+  & > nav {
+
+    flex-shrink: 0;
+    text-align: center;
+    min-height: 0;
+    max-height: 100%;
+
+    & > ul {
+
+      list-style: none;
+
+      & > li {
+
+        & > a {
+          text-decoration: none;
+        }
+
+      }
+
+    }
+
+  }
+
+  & > section {
+
+    flex-grow: 1;
+    min-height: 0;
+    max-height: 100%;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    background-color: #282c34;
+
+  }
+
+}
+

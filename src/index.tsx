@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './app/index.css';
+import './app/index.scss';
 import App from './app/App';
 import reportWebVitals from './app/reportWebVitals';
+
+import 'aframe';
+import 'aframe-particle-system-component';
 
 ReactDOM.render(
   <React.StrictMode>

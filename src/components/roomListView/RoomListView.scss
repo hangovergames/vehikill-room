@@ -1,0 +1,49 @@
+
+.room-list-view {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & > .room-list-view-item {
+
+    border: 1px solid #ffffff;
+    border-radius: 16px;
+    background-position: cover;
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 1em;
+
+    & > .room-list-view-item-content {
+
+      height: 12em;
+      width: 100%;
+
+      text-decoration: none;
+      display : flex;
+      flex-direction: row;
+      align-items: center;
+      justify-items: center;
+      align-content: center;
+      justify-content: center;
+      padding: 1em;
+
+      & > .room-list-view-item-name {
+        color: #61dafb;
+      }
+
+      & > .room-list-view-item-description {
+        color: #ffffff;
+        padding-left: 0.5em;
+      }
+
+    }
+
+  }
+
+}
