@@ -8,15 +8,16 @@ export const FlattenSceneGraph =
     // Removes all structure from a scene graph and simplifies things to 1 container with multiple objects
     // Generally used to simplify loaded gltfs. Breaks original object.
     // only use this with static objects!
-    flatten: function(root)
-    {
+    flatten: function(root) {
+
         var group = new THREE.Group();
         group.position.copy(root.position);
         group.quaternion.copy(root.quaternion);
         group.scale.copy(root.scale);
 
         var invMatrix = new THREE.Matrix4();
-        invMatrix.getInverse(group.matrix);
+        // invMatrix.getInverse(group.matrix);
+        invMatrix.copy(group.matrix).invert();
 
         var transfers = [];
         var matrices = [];
