@@ -5,7 +5,8 @@
  */
 export enum RoomName {
 
-    derby = "derby"
+    derby = "derby",
+    arena = "arena"
 
 }
 

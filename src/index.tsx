@@ -7,6 +7,10 @@ import reportWebVitals from './app/reportWebVitals';
 import 'aframe';
 import 'aframe-particle-system-component';
 import './components/aframe/index';
+import {MultiMesh} from './threejs/objects/MultiMesh';
+
+// @ts-ignore
+window.THREE.MultiMesh = MultiMesh;
 
 ReactDOM.render(
   <React.StrictMode>

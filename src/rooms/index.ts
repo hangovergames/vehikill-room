@@ -2,9 +2,11 @@
 
 import Room from "../common/Room";
 import derby from "./derby";
+import arena from "./arena";
 
 export const ROOMS : Room[] = [
-    derby
+    derby,
+    arena
 ];
 
 export default ROOMS;

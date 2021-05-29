@@ -1,4 +1,5 @@
-// Copyright (c) 2021 Hangover Games Ltd <info@hangover.games>. All rights reserved.
+// Copyright (c) 2019-2021 Hangover Games Ltd <info@hangover.games>. All rights reserved.
+// Copyright (c) 2018-2019 Pixelface Oy
 
 export const RenderLayers =
 {
