@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+
+  vhkl-room-app:
+    container_name: vhkl-room-app
+    image: "vhkl-room-app:latest"
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    ports:
+      - "3000:3000"
