@@ -17,9 +17,10 @@ New features to the derby room can be suggested by
  2. Set up the [Development environment](#development-environment)
  3. Add your new room name to `RoomName` enum at `./src/common/RoomName.ts`
  4. Copy existing room configuration (eg. `./src/rooms/derby.ts`) as `./src/rooms/YOUR-ROOM-NAME.ts`
- 5. Make your changes to `./src/rooms/YOUR-ROOM-NAME.ts`
- 6. Once you're happy with your room, you may submit it as a pull request.
- 7. We may then add it on the server.
+ 5. Add your room to `./src/rooms/index.ts`
+ 6. Make your changes to `./src/rooms/YOUR-ROOM-NAME.ts`
+ 7. Once you're happy with your room, you may submit it as a pull request.
+ 8. We may then add it on the server.
 
 ### Viewing the room
 
